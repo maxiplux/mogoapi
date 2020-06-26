@@ -42,6 +42,18 @@ services:
     restart: on-failure
     ports:
       - '6379:6379'
+  kafka:
+    image: johnnypark/kafka-zookeeper
+    restart: on-failure
+    environment:
+      NUM_PARTITIONS: 3
+      ADVERTISED_HOST: 127.0.0.1
+    ports:
+      - '9092:9092'
+      - '2181:2181'
 volumes:
   dbdata:
 # this compomse no has it https://thepracticaldeveloper.com/2017/12/11/dockerize-spring-boot/ , but  that exmaple is beautiful because implements scale
+#  ./kafka-topics.sh --create --topic test-deposit -zookeeper localhost:2181 --replication-factor 1 --partitions 3
+#  ./kafka-console-producer.sh --broker-list localhost:9092 --topic test-deposit
+#  ./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test-deposit  --from-beginning
