@@ -45,7 +45,7 @@ public class DataLoader implements ApplicationRunner {
             roleRepository.save(Role.builder().name(RoleName.ROLE_ADMIN.name()).build());
             roleRepository.save(Role.builder().name(RoleName.ROLE_MODERATOR.name()).build());
             user.setPassword(passwordEncoder().encode("12345"));
-            user.setUsername("admin");
+            user.setUsername("admin@admin.com");
             user.setFirstName("Jhon");
             user.setLastName("Man");
             user.setEmail("jhon.man@domain.com");
