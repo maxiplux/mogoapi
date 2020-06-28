@@ -48,6 +48,8 @@ public class DataLoader implements ApplicationRunner {
             user.setUsername("admin");
             user.setFirstName("Jhon");
             user.setLastName("Man");
+            user.setEmail("jhon.man@domain.com");
+
             user.setEnabled(true);
             user.setRoles(this.roleRepository.findAll().stream().collect(Collectors.toSet()) );
             this.userRepository.save(user);
