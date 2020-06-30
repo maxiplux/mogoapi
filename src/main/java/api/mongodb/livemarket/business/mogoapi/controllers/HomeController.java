@@ -13,12 +13,21 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 public class HomeController {
 
     @GetMapping("/")
-    public String helloWorld(){
-        return "Hello World";
+    public ResponseEntity<?>  helloWorld(){
+        Map<String, String> msg = new HashMap<String, String>();
+
+        msg.put("msg", "running");
+
+
+        return new ResponseEntity<Map<String, String>>(msg, HttpStatus.OK);
+
     }
 
     @Autowired
@@ -39,9 +48,14 @@ public class HomeController {
             DefaultOAuth2AccessToken newToken = new DefaultOAuth2AccessToken(oAuthDetails.getTokenValue());
             tokenStore.storeAccessToken(newToken, oAuth);
         }
+        Map<String, String> msg = new HashMap<String, String>();
 
 
-        return new ResponseEntity<String>("todo bien 10 10+"+oAuth.getPrincipal(), HttpStatus.OK);
+
+        msg.put("msg", "todo bien 10 10+"+oAuth.getPrincipal());
+
+
+        return new ResponseEntity<Map<String, String>>(msg, HttpStatus.OK);
 
     }
 
