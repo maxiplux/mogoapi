@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.domain.AuditorAware;
-
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -24,7 +24,7 @@ import java.util.Optional;
         allowGetters = true
 )
 @Data
-public abstract class AuditModel implements Serializable, AuditorAware<String> {
+public   class AuditModel implements Serializable, AuditorAware<String> {
 
     @CreatedDate
     private LocalDateTime createdAt;
@@ -35,7 +35,9 @@ public abstract class AuditModel implements Serializable, AuditorAware<String> {
     public Optional<String> getCurrentAuditor() {
 
         // get your user name here
-        return Optional.of("xxxx");
+        String uname = SecurityContextHolder.getContext().getAuthentication().getName();
+        return Optional.of(uname);
+
     }
 
     @LastModifiedDate
