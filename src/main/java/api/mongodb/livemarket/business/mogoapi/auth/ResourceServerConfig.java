@@ -37,6 +37,11 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/api/**").hasAnyRole("USER")
+                .antMatchers(HttpMethod.POST, "/api/**").hasAnyRole("USER")
+                .antMatchers(HttpMethod.DELETE, "/api/**").hasAnyRole("ADMIN")
+                .antMatchers(HttpMethod.PUT, "/api/**").hasAnyRole("ADMIN")
+                .antMatchers(HttpMethod.PATCH, "/api/**").hasAnyRole("ADMIN")
 
                 .antMatchers(HttpMethod.GET,
 
@@ -69,8 +74,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                         "/swagger-resources/**"
 
                 )
-                /*.antMatchers(HttpMethod.GET, "/api/clientes/{id}").hasAnyRole("USER", "ADMIN")
-                .antMatchers(HttpMethod.POST, "/api/clientes/upload").hasAnyRole("USER", "ADMIN")
+
+                /*.antMatchers(HttpMethod.POST, "/api/clientes/upload").hasAnyRole("USER", "ADMIN")
                 .antMatchers(HttpMethod.POST, "/api/clientes").hasRole("ADMIN")
                 .antMatchers("/api/clientes/**").hasRole("ADMIN")*/
 

@@ -25,6 +25,8 @@ dependencies {
     compile "org.springdoc:springdoc-openapi-ui:1.4.1"
     compile 'org.springdoc:springdoc-openapi-security:1.4.1'
 
+    implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+
     compile "org.springframework.boot:spring-boot-starter-actuator"
 
 
