@@ -39,7 +39,7 @@ public class DataLoader implements ApplicationRunner {
     private void createUser() {
 
         User user = new User();
-        if (!this.userRepository.existsByUsername("admin"))
+        if (!this.userRepository.existsByUsername("admin@admin.com"))
         {
             roleRepository.save(Role.builder().name(RoleName.ROLE_USER.name()).build());
             roleRepository.save(Role.builder().name(RoleName.ROLE_ADMIN.name()).build());
