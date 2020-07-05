@@ -30,6 +30,11 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-actuator"
 
 
+    compile 'io.sentry:sentry-spring:1.7.30'
+
+
+
+
 
     implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
     implementation("org.springframework.boot:spring-boot-starter-security")
