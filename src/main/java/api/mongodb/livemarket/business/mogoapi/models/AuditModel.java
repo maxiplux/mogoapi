@@ -35,7 +35,13 @@ public   class AuditModel implements Serializable, AuditorAware<String> {
     public Optional<String> getCurrentAuditor() {
 
         // get your user name here
-        String uname = SecurityContextHolder.getContext().getAuthentication().getName();
+        String uname="admin";
+        try {
+            uname = SecurityContextHolder.getContext().getAuthentication().getName();
+        }
+        catch (Exception ex){
+        }
+
         return Optional.of(uname);
 
     }

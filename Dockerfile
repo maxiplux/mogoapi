@@ -20,8 +20,9 @@ ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
 
 #docker build -t maxiplux/mongoapi .
 #docker build -t maxiplux/mongoapi .
-#docker tag  f315be9faa7c  maxiplux/mongoapi:1.0.2
-#docker push maxiplux/mongoapi:1.0.2
+#mvnw spring-boot:build-image
+#docker tag  fa558b8190bf   maxiplux/mongoapi:1.0.4
+#docker push maxiplux/mongoapi:1.0.4
 #docker tag  39d440f82330 maxiplux/livemarket.business.b2bcart:kuerbernetes
 #docker push maxiplux/livemarket.business.b2bcart:kuerbernetes
 
